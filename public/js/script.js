@@ -5,8 +5,6 @@
 
 window.mount = () => {
 
-    (function ($, window, document) {
-        $(document).ready(function () {
             // Úteis
             console.log('Script.js activated');
             $('.boxHeight').matchHeight();
@@ -51,6 +49,8 @@ window.mount = () => {
 
             // Hide Password
             $('.js-password + .fa').on('click', function () {
+                console.log($('.js-password + .fa'));
+                console.log("aaa");
                 $(this).toggleClass('fa-eye-slash').toggleClass('fa-eye');
                 $(this).closest('.form-group').find('.js-password').togglePassword();
             });
@@ -241,7 +241,6 @@ window.mount = () => {
                 }
             }
         });
-        });
 
 
         $(".js-cadastrar").on("click", function () {
@@ -266,7 +265,6 @@ window.mount = () => {
             $('#cadastrar').fadeIn();
         });
 
-    }(window.jQuery, window, document));
 
 }
 window.mount();
