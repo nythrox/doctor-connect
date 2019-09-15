@@ -136,7 +136,8 @@ class MarcarConsulta4 extends Component {
                                             <div class="box-form-fade js-btn-boleto" style={{ display: 'none' }}>
                                                 <div class="group-btn">
                                                     <Link to="/auth/marcar-consulta-4-confirmacao" className="btn btn-full">Gerar boleto
-                            </Link></div>
+                                                     </Link>
+                                                    </div>
                                             </div>
                                         </div>
 

@@ -3,9 +3,7 @@ import Avatar from '../../assets/images/avatar.jpg';
 import MedicoModal from '../medico-modal';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
-class MedicoCardAgendar extends Component {
-
-
+class MedicoCardSolicitacaoConsulta extends Component {
 
     constructor(props) {
         super(props);
@@ -15,7 +13,10 @@ class MedicoCardAgendar extends Component {
         return (<div >
 
             <div class="card boxHeight">
-                <a href="#!" data-toggle="modal" data-target="#modal-informacoes">
+                <a href="javascript:" data-toggle="modal" data-target="#modal-informacoes">
+                    <span class="msg-hidden">
+                        <h6>Você recusou a consulta.<br />Ela foi cancelada.</h6>
+                    </span>
                     <div class="item-top flex-space">
                         <div class="group-avatar">
                             <img src={Avatar} alt="Nome" />
@@ -30,22 +31,14 @@ class MedicoCardAgendar extends Component {
                         </div>
                     </div>
                     <div class="item-center">
-                        <h6>{this.props.endereco1}<br />
-                            {this.props.endereco2}</h6>
+                        <h3>{this.props.tituloConsulta}</h3>
+                        <h6>Consulta: {this.props.codConsulta}</h6>
                     </div>
                 </a>
                 <div class="item-bottom border-top">
                     <div class="content flex-space">
-                        <Link to="/marcar-consulta/4" className="btn btn-large">
-                            Agendar
-                                    </Link>
-                        {
-                            this.props.preco == undefined ? "" : 
-                            <div class="group text-right">
-                                <h6><strong class="success">R$ {this.props.preco}</strong></h6>
-                                <h6 class="italic">a consulta</h6>
-                            </div>
-                        }
+                        <Link to="/auth/consultas/marcadas-perfil" className="btn btn-full">Aceitar</Link>
+                        <a href="javascript:" class="btn btn-clean btn-full js-card-recusar">Recusar</a>
                     </div>
                 </div>
             </div>
@@ -54,4 +47,4 @@ class MedicoCardAgendar extends Component {
         );
     }
 }
-export default MedicoCardAgendar;
+export default MedicoCardSolicitacaoConsulta;

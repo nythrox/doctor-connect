@@ -3,19 +3,17 @@ import Avatar from '../../assets/images/avatar.jpg';
 import MedicoModal from '../medico-modal';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
-class MedicoCardAgendar extends Component {
-
-
+class MedicoCardConsultaRealizada extends Component {
 
     constructor(props) {
         super(props);
     }
 
     render() {
-        return (<div >
-
+        return (
             <div class="card boxHeight">
-                <a href="#!" data-toggle="modal" data-target="#modal-informacoes">
+                <Link to="/auth/consultas/realizadas-perfil">
+
                     <div class="item-top flex-space">
                         <div class="group-avatar">
                             <img src={Avatar} alt="Nome" />
@@ -30,28 +28,19 @@ class MedicoCardAgendar extends Component {
                         </div>
                     </div>
                     <div class="item-center">
-                        <h6>{this.props.endereco1}<br />
-                            {this.props.endereco2}</h6>
-                    </div>
-                </a>
-                <div class="item-bottom border-top">
-                    <div class="content flex-space">
-                        <Link to="/marcar-consulta/4" className="btn btn-large">
-                            Agendar
-                                    </Link>
-                        {
-                            this.props.preco == undefined ? "" : 
-                            <div class="group text-right">
-                                <h6><strong class="success">R$ {this.props.preco}</strong></h6>
-                                <h6 class="italic">a consulta</h6>
+                        <div class="content flex-space">
+                            <div class="group">
+                                <h3>{this.props.tituloConsulta}</h3>
+                                <h6>Consulta: {this.props.codConsulta}</h6>
                             </div>
-                        }
+                            <div class="group text-right">
+                                <h6 class="italic">Realizada em<br /> {this.props.dataRealizada}    </h6>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </Link>
             </div>
-            <MedicoModal />
-        </div>
         );
     }
 }
-export default MedicoCardAgendar;
+export default MedicoCardConsultaRealizada;

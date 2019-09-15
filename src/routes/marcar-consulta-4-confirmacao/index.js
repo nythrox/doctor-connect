@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Avatar from '../../assets/images/avatar.jpg';
 import MedicoCard from '../../components/medico-card';
+import ContatoCardIcon from '../../components/contato-card-icon';
 class MarcarConsulta4Confirmacao extends Component {
 
     componentDidMount(){
@@ -34,61 +35,18 @@ class MarcarConsulta4Confirmacao extends Component {
                         <h2 class="small mb-10">Entre em contato com o médico e marque a data de sua consulta.</h2>
                     </div>
                         <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="tel:1123657518" class="card boxHeight">
-                                <div class="item-top full flex-space">
-                                    <div class="group">
-                                        <h6><strong>Telefone</strong></h6>
-                                        <h6>(11) 2365-7518</h6>
-                                    </div>
-                                    <div class="group-icon">
-                                        <h6>Mandar<br/> mensagem</h6>
-                                        <i class="la la-phone"></i>
-                                    </div>
-                                </div>
-                            </a>
+                            <ContatoCardIcon icon="phone" titulo="Telefone" subtitulo="(11) 2365-7518" mensagem="Mandar Mensagem" link="tel:1123657518" targetBlank={false}/>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="https://wa.me/5511923657518?text=Como%20podemos%20te%20ajuda?" target="_blank" class="card boxHeight">
-                                <div class="item-top full flex-space">
-                                    <div class="group">
-                                        <h6><strong>WhatsApp</strong></h6>
-                                        <h6>(11) 92365-7518</h6>
-                                    </div>
-                                    <div class="group-icon">
-                                        <h6>Mandar<br/> mensagem</h6>
-                                        <i class="la la-whatsapp"></i>
-                                    </div>
-                                </div>
-                            </a>
+                            <ContatoCardIcon icon="whatsapp" titulo="WhatsApp" subtitulo="(11) 92365-75188" mensagem="Mandar Mensagem" link="https://wa.me/5511923657518?text=Como%20podemos%20te%20ajuda?" targetBlank={true}/>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="mailto:contato@email.com" class="card boxHeight">
-                                <div class="item-top full flex-space">
-                                    <div class="group">
-                                        <h6><strong>E-mail</strong></h6>
-                                        <h6>contato@email.com</h6>
-                                    </div>
-                                    <div class="group-icon">
-                                        <h6>Mandar<br/> e-mail</h6>
-                                        <i class="la la-envelope"></i>
-                                    </div>
-                                </div>
-                            </a>
+                            <ContatoCardIcon icon="envelope" titulo="E-mail" subtitulo="contato@email.com" mensagem="Mandar e-mail" link="mailto:contato@email.com" targetBlank={false}/>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3">
-                            <a href="#!" class="card boxHeight">
-                                <div class="item-top full flex-space">
-                                    <div class="group">
-                                        <h6><strong>Chat</strong></h6>
-                                        <h6>Mensagem</h6>
-                                    </div>
-                                    <div class="group-icon">
-                                        <h6>Conversar</h6>
-                                        <i class="la la-comments"></i>
-                                    </div>
-                                </div>
-                            </a>
+                            <ContatoCardIcon icon="comments" titulo="Chat" subtitulo="Mensagem" mensagem="Conversar" link="#!" targetBlank={false}/>
                         </div>
+                        
                     </div>
     
                 </div>
