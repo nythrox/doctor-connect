@@ -5,10 +5,6 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 class MedicoCardSolicitacaoConsulta extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (<div >
 

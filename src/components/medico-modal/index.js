@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Avatar from '../../assets/images/avatar.jpg';
-function MedicoModal(){
+class MedicoModal extends Component{
+    render(){
     return (
         <div id="modal-informacoes" class="modal" tabindex="-1" role="dialog">
                 <div class="modal-dialog modal-lg" role="document">
@@ -10,7 +11,8 @@ function MedicoModal(){
                                 <div class="group-avatar">
                                     <img src={Avatar} alt="Nome" />
                                     <div class="group">
-                                        <h3>Dr. Médico Josival</h3>
+                                        {console.log(this.props.nome)}
+                                        <h3>{this.props.nome === undefined ? "Dr. Médico Josival" : this.props.nome}</h3>
                                     </div>
                                 </div>
                                 <div class="group-avaliar box-right">
@@ -60,6 +62,6 @@ function MedicoModal(){
                     </div>
                 </div>
             </div>
-        );
+        );}
 }
 export default MedicoModal;

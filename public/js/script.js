@@ -2,7 +2,51 @@
     Minificar
     https://jscompress.com/
 */
+  
+window.cpfNaoExiste = ()=>{
+    swal({
+        type: 'warning',
+        title: "Atenção",
+        text: "Cpf não registrado.",
 
+    })
+} 
+window.senhaRecuperada = ()=>{
+    swal({
+        type: 'warning',
+        title: "Atenção",
+        text: "Mandaremos uma mensagem para seu email com as informações necessárias para recuperar sua senha.",
+
+    })
+} 
+window.loginFailed = ()=>{
+    swal({
+        type: 'warning',
+        title: "Atenção",
+        text: "Login ou senha incorreta.",
+
+    })
+} 
+window.confirmPasswordFail = ()=>{
+    swal({
+        type: 'warning',
+        title: "Atenção",
+        text: "Certifique que suas senhas estão iguais.",
+
+    })
+} 
+window.cpfExiste = ()=>{
+    swal({
+        type: 'warning',
+        title: "Atenção",
+        text: "Este cpf já está registrado.",
+    })
+}
+window.proximo = ()=>{
+    
+                    $("#cadastrar").hide();
+                    $('#finalizar-cadastro').fadeIn();
+}
 window.mount = () => {
 
             // Úteis
@@ -251,20 +295,117 @@ window.mount = () => {
             $('#cadastrar').hide();
             $('#entrar').fadeIn();
         });
-        $(".js-proximo").on("click", function () {
-            $('#cadastrar').validator().on('submit', function(e) {
-                if (!e.isDefaultPrevented()) {
-                    $(this).hide();
-                    $('#finalizar-cadastro').fadeIn();
-                }
-            });
-        });
+        // $(".js-proximo").on("click", function () {
+        //     $('#cadastrar').validator().on('submit', function(e) {
+        //         if (!e.isDefaultPrevented()) {
+        //             $(this).hide();
+        //             $('#finalizar-cadastro').fadeIn();
+        //         }
+        //     });
+        // });
         $(".js-voltar").on("click", function () {
             $('#finalizar-cadastro').hide();
             $('#entrar').hide();
             $('#cadastrar').fadeIn();
         });
 
+        var barChart = document.getElementById("bar-chart");
+        var lineChart = document.getElementById("line-chart");
+        var pieChart = document.getElementById("pie-chart");
+        if (barChart !== null) {
+            new Chart(barChart, {
+                type: 'bar',
+                data: {
+                labels: ["Item 01", "Item 02", "Item 03", "Item 04"],
+                datasets: [
+                    {
+                    label: "Item",
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9"],
+                    data: [10,50,120,200]
+                    }
+                ]
+                },
+                options: {
+                    legend: { display: false }
+                }
+            });
+        }
+        if (lineChart !== null) {
+        new Chart(lineChart, {
+            type: 'line',
+            data: {
+                labels: [10,50,120,200],
+                datasets: [{ 
+                        data: [10,50,120,200],
+                        label: "Item",
+                        borderColor: "#3e95cd",
+                        fill: false
+                    }, { 
+                        data: [10,50,120,200],
+                        label: "Item",
+                        borderColor: "#8e5ea2",
+                        fill: false
+                    }, { 
+                        data: [100,10,5,180],
+                        label: "Item",
+                        borderColor: "#3cba9f",
+                        fill: false
+                    }, { 
+                        data: [5,200,80,20],
+                        label: "Item",
+                        borderColor: "#e8c3b9",
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                legend: { display: false }
+            }
+        });}
+        
+        if (pieChart !== null) {
+        new Chart(pieChart, {
+            type: 'pie',
+            data: {
+                labels: ["Item 01", "Item 02", "Item 03", "Item 04"],
+            datasets: [{
+                label: "Item",
+                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9"],
+                data: [10,50,120,200]
+            }]
+            },
+            options: {
+                legend: { display: false }
+            }
+        });}
 
+        
+        var $formCheck1 = $('.js-form-medico');
+        var $formCheck2 = $('.js-form-paciente');
+
+        $('#medicos').change(function(){
+            if($(this).is(":checked")) {
+                $formCheck1.slideDown("slow");
+            } else {
+                $formCheck1.slideUp("slow");
+            }
+        });
+        $('#pacientes').change(function(){
+            if($(this).is(":checked")) {
+                $formCheck2.slideDown("slow");
+            } else {
+                $formCheck2.slideUp("slow");
+            }
+        });
+
+        // Range idade
+        var rangeIdade = $("#range_idade");
+        rangeIdade.slider();
+        rangeIdade.on("slide", function(slideEvt) {
+            $("#range_idade_start").text(slideEvt.value[0]);
+            $("#range_idade_end").text(slideEvt.value[1]);
+        });
 }
 window.mount();
+
+  

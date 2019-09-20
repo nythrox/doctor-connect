@@ -18,6 +18,13 @@ import MedicoPerfil from '../../routes/medico-perfil';
 import MeusMedicos from '../../routes/meus-medicos';
 import ConsultasPerfil from '../../routes/consultas-perfil';
 import ConsultasRealizadasPerfil from '../../routes/consultas-realizadas-perfil';
+import Anuncios from '../../routes/anuncios';
+import HeaderAnuncios from '../headerAnuncios';
+import AnunciosInt from '../../routes/anunciosInt';
+import NavbarAnuncios from '../navbar-anuncios';
+import CriarAnuncio1 from '../../routes/criar-anuncios-1';
+import CriarAnuncio2 from '../../routes/criar-anuncios-2';
+import CriarAnuncio3 from '../../routes/criar-anuncios-3';
 
 function App() {
   return (
@@ -27,6 +34,7 @@ function App() {
         <Route exact path="/" component={Homepage} />
         <Route exact path="/recuperar-senha" component={RecuperarSenha} />
 
+
         {/* tudo no marcar-consulta pra preservar o menu ao trocar de pagina */}
         <Route path="/marcar-consulta" component={Navbar} />
         <Switch>
@@ -35,6 +43,22 @@ function App() {
           <Route path="/marcar-consulta/3" component={MarcarConsulta3} />
           <Route path="/marcar-consulta/4" component={MarcarConsulta4} />
         </Switch>
+
+
+        <Route path="/criar-anuncio" component={NavbarAnuncios} />
+        <Switch>
+          <Route path="/criar-anuncio/1" component={CriarAnuncio1} />
+          <Route path="/criar-anuncio/2" component={CriarAnuncio2} />
+          <Route path="/criar-anuncio/3" component={CriarAnuncio3} />
+          <Route path="/criar-anuncio/4" component={MarcarConsulta4} />
+        </Switch>
+
+        <Route path="/auth-anuncio/" component={HeaderAnuncios} />
+        <Switch>
+          <Route path="/auth-anuncio/anuncios/" component={Anuncios} />
+          <Route path="/auth-anuncio/anuncios-int/" component={AnunciosInt} />
+        </Switch>
+
         {/* por enquanto eu deixei todas as paginas com o menu logado no /auth, depois podemos ver no state se esta logado ou nao */}
         <Route path="/auth" component={HeaderLoggedIn} />
         <Switch>
@@ -43,7 +67,7 @@ function App() {
           <Route path="/auth/minha-conta" component={MinhaConta} />
           <Route path="/auth/marcar-consulta-4-confirmacao" component={MarcarConsulta4Confirmacao} />
           <Route path="/auth/consultas/marcadas" component={ConsultasMarcadas} />
-          <Route path="/auth/consultas/marcadas-perfil" component={ConsultasPerfil} />
+          <Route path="/auth/consultas/marcadas-perfil/:id" component={ConsultasPerfil} />
           <Route path="/auth/consultas/realizadas-perfil" component={ConsultasRealizadasPerfil} />
           <Route path="/auth/consultas/marcar-pagamento" component={MarcarConsultaPagamento} />
           <Route path="/auth/consultas/realizadas" component={ConsultasRealizadas} />
